@@ -58,6 +58,8 @@ header h1{
 
 .hero img[data-testid="slackProfilePicture"]{
     border-radius: 8px;
+    max-width: none;
+    height: auto;
 }
 
 
@@ -147,7 +149,7 @@ header h1{
     body {
         padding: 1.5rem 2rem;
     }
-    
+
     .hero {
         flex-direction: column;
         text-align: left;
