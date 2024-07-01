@@ -1,17 +1,7 @@
-function updateUTCDateTime() {
+function updateUTCTime() {
     const now = new Date();
-    const currentDayElement = document.querySelector('[data-testid="currentDay"]');
-    const currentTimeElement = document.querySelector('[data-testid="currentTimeUTC"]');
-
-    // Format the date (day, month, year)
-    const dateOptions = {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        timeZone: 'UTC'
-    };
-    const formattedDate = now.toLocaleString('en-US', dateOptions);
+    const utcTimeElement = document.querySelector('[data-testid="currentTimeUTC"]');
+    const utcDayElement = document.querySelector('[data-testid="currentDay"]');
 
     // Format the time
     const timeOptions = {
@@ -20,13 +10,17 @@ function updateUTCDateTime() {
         second: '2-digit',
         timeZone: 'UTC'
     };
-    const formattedTime = now.toLocaleString('en-US', timeOptions);
+    const formattedTime = now.toLocaleTimeString('en-US', timeOptions);
+
+    // Get the day of the week
+    const days = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ];
+    const dayOfWeek = days[ now.getUTCDay() ];
 
     // Update the DOM
-    currentDayElement.textContent = formattedDate;
-    currentTimeElement.textContent = formattedTime + ' UTC';
+    utcTimeElement.textContent = formattedTime + ' UTC';
+    utcDayElement.textContent = dayOfWeek;
 }
 
-// Update date and time immediately and then every second
-updateUTCDateTime();
-setInterval(updateUTCDateTime, 1000);
+// Update time immediately and then every second
+updateUTCTime();
+setInterval(updateUTCTime, 1000);
