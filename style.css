@@ -53,9 +53,9 @@ header h1{
 }
 
 .hero .profile-image {
-    max-width: 550px;
-    height: 450px; 
-    border-radius: 8px; 
+    max-width: 350px;
+    height: auto; 
+    border-radius: 50%; 
     overflow: hidden; 
     display: flex;
     justify-content: center;
